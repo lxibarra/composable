@@ -1,0 +1,24 @@
+{
+  "name": "composable",
+  "version": "1.0.0",
+  "description": "Universal composable middleware handler",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha tests/**/*.spec.js"
+  },
+  "keywords": [
+    "unviersal",
+    "composable",
+    "javascript",
+    "middleware"
+  ],
+  "author": "Ricardo Ibarra <coder10@gmail.com> (http://doitfy.com)",
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "fetch-mock": "^5.12.2",
+    "mocha": "^3.5.3",
+    "es6-promise": "^4.1.1",
+    "isomorphic-fetch": "^2.2.1"
+  }
+}
