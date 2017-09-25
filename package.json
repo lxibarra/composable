@@ -1,6 +1,6 @@
 {
   "name": "universal-composable",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Universal composable middleware for the browser and node",
   "main": "src/composable.js",
   "scripts": {
