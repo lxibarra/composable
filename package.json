@@ -1,8 +1,8 @@
 {
-  "name": "composable",
+  "name": "universal-composable",
   "version": "1.0.0",
   "description": "Universal composable middleware for the browser and node",
-  "main": "index.js",
+  "main": "src/composable.js",
   "scripts": {
     "test": "mocha tests/**/*.spec.js",
     "build": "webpack --output-library composable --output-library-target umd --optimize-minimize"
@@ -14,6 +14,13 @@
     "Middleware"
   ],
   "author": "Ricardo Ibarra <coder10@gmail.com> (http://doitfy.com)",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lxibarra/universal-composable.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lxibarra/universal-composable/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
