@@ -2,10 +2,9 @@ var expect = require('chai').expect;
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 var fetchMock = require('fetch-mock');
-
+var composable  = require('../src/composable.js').composable;
 
 describe('Test the incredible light-composable library', function() {
-  var  composable  = require('../src/index.js').composable;
 
   it('Use is available', function() {
     expect(composable).to.be.an('object');
@@ -26,7 +25,6 @@ describe('Test the incredible light-composable library', function() {
           middleware3,
           middleware4
       );
-
   });
 
   it('chain middlerwares to add numbers but abort before last', function() {
@@ -47,12 +45,9 @@ describe('Test the incredible light-composable library', function() {
           middleware3,
           middleware4
       );
-
   });
 
   describe ("async tests", function () {
-
-
 
     it('"fetch information in an asyc fashion and do something with it"', function(done) {
         fetchMock.get('*', {name: 'Ricardo', gender:1, hobbies:['coding', 'museums', 'hiking', 'wine', 'rum', 'tequila']});
