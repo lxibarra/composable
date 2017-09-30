@@ -5,7 +5,9 @@
   "main": "src/composable.js",
   "scripts": {
     "test": "mocha tests/**/*.spec.js",
-    "build": "webpack --output-library composable --output-library-target umd --optimize-minimize"
+    "build": "webpack --output-library composable --output-library-target umd --optimize-minimize",
+    "debug": "mocha tests/**/*.spec.js --debug-brk",
+    "publish": "webpack --output-library composable --output-library-target umd --optimize-minimize && npm publish"
   },
   "keywords": [
     "Universal javascript",

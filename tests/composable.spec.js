@@ -2,7 +2,9 @@ var expect = require('chai').expect;
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
 var fetchMock = require('fetch-mock');
-var composable  = require('../src/composable.js').composable;
+var libCompose  = require('../src/composable.js');
+var composable = libCompose.composable;
+var Composable = libCompose.Composable;
 
 describe('Test the incredible light-composable library', function() {
 
@@ -93,5 +95,46 @@ describe('Test the incredible light-composable library', function() {
     });
   });
 
+  describe('Test Composable instance', function() {
+    var compose;
+    beforeEach(function() {
+      compose = new Composable();
+    });
+
+    it('New instance of Composable is created', function() {
+      var compose = new Composable();
+      expect(compose).to.be.instanceof(Composable);
+    });
+
+    it('Execute middleware with custom intial param and bindings', function() {
+      var middleware1 = function(result, next, abort) {
+        var initTotal = this.a + result;
+        expect(initTotal).to.equal(4);
+        next(initTotal);
+      };
+
+      var middleware2 = function(result, next, abort) {
+        var total = result + 2;
+        next(total);
+      };
+
+      var middleware3 = function(result) {
+        expect(result).to.equal(6);
+      };
+
+      var initialValues = {
+        a:2,
+        b:3
+      };
+
+      var compose = new Composable();
+      compose.use(
+        middleware1.bind(initialValues, 2, compose.next, compose.abort),
+        middleware2,
+        middleware3
+      );
+    });
+
+  });
 
 });

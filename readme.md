@@ -24,7 +24,7 @@ const composable = require('composable').composable;
 const middleware1 = (value, next, abort) => fetch('my.data.com')
                           .then(response=>response.json())
                           .then(next(data))
-                          .catch(abort)
+                        .catch(abort)
 const middleware2 = (value, next, abort) => {
         //parse data or work with it in some way
         //...
@@ -40,6 +40,7 @@ const middleware3 = (value, next, abort) => {
   });
 }
 
+//super nicely execute your middleware functions in a sequential manner.
 composable.use(
   middleware1,
   middleware2,
@@ -47,6 +48,43 @@ composable.use(
 )
 
 ```
+
+### Using custom initial values and bindings is also supported in version v1.2.0 ###
+```javascript
+var middleware1 = function(result, next, abort) {
+  var initTotal = this.a + result;
+  //initTotal is currently = 4;
+  next(initTotal);
+};
+
+var middleware2 = function(result, next, abort) {
+  var total = result + 2;
+  //total is equal to 6
+  next(total);
+};
+
+var middleware3 = function(result) {
+  //do something with result currently equal to 6.
+  fetch(`http://my.data.com/id=${result}`)
+    .then(response=>response.json())
+    .then(response=> {
+      //your custom code
+    })
+};
+
+var initialValues = {
+  a:2,
+  b:3
+};
+
+var compose = new Composable();
+compose.use(
+  middleware1.bind(initialValues, 2, compose.next, compose.abort),
+  middleware2,
+  middleware3
+);
+```
+
 
 ### Browser ###
 
