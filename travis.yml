@@ -1,0 +1,10 @@
+
+language: node_js
+node_js:
+    - "6.11.1"
+before_install:
+  - npm install mocha istanbul -g
+install:
+  - npm install
+script:
+  - npm test
