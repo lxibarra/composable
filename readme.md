@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/lxibarra/universal-composable.svg?branch=master)](https://travis-ci.org/lxibarra/universal-composable)
 
+[![Coverage Status](https://coveralls.io/repos/github/lxibarra/universal-composable/badge.svg?branch=master)](https://coveralls.io/github/lxibarra/universal-composable?branch=master)
+
 Use middleware in the browser in the "same" way you do in node.
 This Library is super light and small and more updates are on the way.
 
