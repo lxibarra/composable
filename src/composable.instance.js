@@ -23,7 +23,7 @@ function Composable() {
       executionStack.shift()(undefined, next, abort);
     }
   };
-  //avoid using bind
+  //to avoid using bind
   this.next = next;
   this.abort = abort;
 }

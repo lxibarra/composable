@@ -7,7 +7,8 @@
     "test": "istanbul cover node_modules/mocha/bin/_mocha --report lcovonly -R tests/**/*.spec.js && cat coverage/lcov.info | node_modules/coveralls/bin/coveralls.js && rm -rf coverage",
     "build": "webpack --output-library composable --output-library-target umd --optimize-minimize",
     "debug": "mocha tests/**/*.spec.js --debug-brk",
-    "release": "webpack --output-library composable --output-library-target umd --optimize-minimize && npm publish"
+    "package": "webpack --output-library composable --output-library-target umd --optimize-minimize",
+    "release": "npm package && npm publish"
   },
   "keywords": [
     "Universal javascript",

@@ -135,6 +135,49 @@ describe('Test the incredible light-composable library', function() {
       );
     });
 
+    it('Test abort scenario', function() {
+      compose.use(
+        function(undefined, next, abort) {
+          next(2);
+        },
+        function(value, next, abort) {
+          abort();
+          next(2);
+        },
+        function(result) {
+          //this will never execute and therefor not fail the test
+          expect(result).to.equal(true);
+        }
+      );
+    });
+
+  });
+
+  describe("sick scenarios", function() {
+    var compose;
+    beforeEach(function() {
+      compose = new Composable();
+    });
+
+    it("no functions are provided to use instance", function() {
+      expect(compose.use).to.not.throw();
+    });
+
+    it("Pass objects that are not functions", function() {
+      expect(
+        function() {
+        compose.use(
+        undefined,
+        null,
+        'This is trying to break the implementation',
+        true,
+        false,
+        [],
+        {});
+      }
+    ).to.not.throw();
+    });
+
   });
 
 });
