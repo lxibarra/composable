@@ -3,7 +3,7 @@ var webpack = require('webpack');
 module.exports = {
   entry: './src/composable.js',
   output: {
-    path:__dirname + '/dist/',
+    path:__dirname + '/umd/',
     filename:'composable.min.js'
   },
   module: { //maybe for runnign the tests in the browser

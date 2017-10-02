@@ -89,6 +89,14 @@ compose.use(
 ```
 
 
-### Browser ###
+### Browser & CDN ###
 
 You can use AMD or simply drop a script tag with ``` dist/composable.min.js ``` and work with in the same way you do in node.
+or use the CDN https://unpkg.com as
+```html
+    <!-- Latest version -->
+   <script src="https://unpkg.com/universal-composable/umd/composable.min.js"></script>
+   <!-- or specific version example: @1.2.1 -->
+   <script src="https://unpkg.com/universal-composable@version/umd/composable.min.js"></script>
+
+ ```
