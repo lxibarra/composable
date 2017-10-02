@@ -19,7 +19,7 @@ The library injects 3 args in the following order:
 * ``` abort ```: function that stops the flow giving you a chance to stop things if no further execution is required or simply gracefully handle errors.   
 
 
-```npm install universal-composable --save```
+```bash npm install universal-composable --save ```
 
 ```javascript
 const composable = require('composable').composable;
@@ -52,8 +52,11 @@ composable.use(
 
 ```
 
-### Using custom initial values and bindings is also supported in version v1.2.0 ###
+### Using custom initial values and bindings is also supported in version v1.2.2 ###
 ```javascript
+
+const Composable = require('composable').Composable;
+
 var middleware1 = function(result, next, abort) {
   var initTotal = this.a + result;
   //initTotal is currently = 4;
@@ -91,12 +94,23 @@ compose.use(
 
 ### Browser & CDN ###
 
-You can use AMD or simply drop a script tag with ``` dist/composable.min.js ``` and work with in the same way you do in node.
+You can use AMD or simply drop a script tag with ``` umd/composable.min.js ``` and work with in the same way you do in node.
 or use the CDN https://unpkg.com as
 ```html
     <!-- Latest version -->
    <script src="https://unpkg.com/universal-composable/umd/composable.min.js"></script>
-   <!-- or specific version example: @1.2.1 -->
+   <!-- or specific version example: @1.2.2 -->
    <script src="https://unpkg.com/universal-composable@version/umd/composable.min.js"></script>
+
+   <script>
+      var Composable = composable.Composable;
+      var compose = new Composable();
+      compose.use(
+        yourMiddleWare1,
+        yourMiddleWare2,
+        yourMiddleWare3
+      )
+
+   </script>
 
  ```
